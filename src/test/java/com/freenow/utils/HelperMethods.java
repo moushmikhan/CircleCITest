@@ -115,7 +115,7 @@ public class HelperMethods {
 
             for (String getId : getComments) {
                 emailList.add(i,getId);
-                System.out.println("*******Comment for post Id= "+searchPosts.get(i) +" is :" + emailList.get(i)+"\n");
+                System.out.println("*******Comment for post Id= "+searchPosts.get(i) +" is :" + emailList.get(i).replaceAll("\n","")+"\n");
             }
         }
 
