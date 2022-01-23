@@ -75,7 +75,7 @@ public class HelperMethods {
             JsonPath jsonPath = new JsonPath(response.getBody().asString());
             List<Integer> getPostId = jsonPath.getList("id");
             Assert.assertFalse(getPostId.equals(""),"PostId not foud");
-            List<Object> getUserName = jsonPath.getList("username");
+
             ArrayList<Integer> emailList = new ArrayList<>();
             for (int getId : getPostId)
             {
@@ -151,12 +151,12 @@ public class HelperMethods {
 
             for (String getId : getComments) {
                 emailList.add(i,getId);
-                System.out.println("*******EmailId for post Id= "+searchPosts.get(i) +" is :" + emailList.get(i));
                 Pattern VALID_EMAIL_ADDRESS_REGEX =
                         Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
                     Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailList.get(i));
-                    assert matcher.find();
+                    Assert.assertTrue(matcher.find());
+                    System.out.println("*******EmailId "+emailList.get(i)+" for post Id= "+searchPosts.get(i) +" is validated"  );
                 }
             }
 
@@ -183,7 +183,7 @@ public class HelperMethods {
                         .extract().response();
 
         Assert.assertTrue(response.getStatusCode()!=200);
-        System.out.println("POST Method not allowed");
+        System.out.println("POST Method not allowed for /users endpoint");
 
     }
     public static void putUser(String searchUserName) throws MalformedURLException {
@@ -203,7 +203,7 @@ public class HelperMethods {
                         .extract().response();
 
         Assert.assertTrue(response.getStatusCode()!=200);
-        System.out.println("POST Method not allowed");
+        System.out.println("PUT Method not allowed for /users endpoint");
 
     }
 
@@ -224,7 +224,7 @@ public class HelperMethods {
                         .extract().response();
 
         Assert.assertTrue(response.getStatusCode()!=200);
-        System.out.println("Method not allowed");
+        System.out.println("DELETE Method not allowed for /users endpoint");
 
     }
 
@@ -245,7 +245,7 @@ public class HelperMethods {
                         .extract().response();
 
         Assert.assertTrue(response.getStatusCode()!=200);
-        System.out.println("Method not allowed");
+        System.out.println(" DELETE Method not allowed for /posts endpoint");
 
     }
 
@@ -266,7 +266,7 @@ public class HelperMethods {
                         .extract().response();
 
         Assert.assertTrue(response.getStatusCode()!=200);
-        System.out.println("Method not allowed");
+        System.out.println("DELETE Method not allowed for /comments endpoint");
 
     }
 
@@ -287,7 +287,7 @@ public class HelperMethods {
                         .extract().response();
 
         Assert.assertTrue(response.getStatusCode()!=200);
-        System.out.println("Method not allowed");
+        System.out.println("POST Method not allowed for /posts endpoint");
 
     }
 

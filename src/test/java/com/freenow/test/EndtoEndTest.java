@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
                 userId = HelperMethods.searchUser(username);
                 Assert.assertNotNull(userId);
+                System.out.println("User: "+username+" found");
         }
 
 
@@ -54,7 +55,7 @@ import java.util.ArrayList;
           Test04 - This test will get the comments and validates the emailId format based on the username provided if the user exits in the system.
                     If the username is invalid or not available in DB, this test will fail
        */
-        @Test(priority = 4)
+        @Test(priority = 4,enabled = false)
         public void T04_fetchCommentsByUsernameandVerifyEmail() throws MalformedURLException {
             int userId = HelperMethods.searchUser("Samantha");
             ArrayList<Integer> postId = HelperMethods.getPosts(userId);
