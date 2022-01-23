@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="API Testing Suite">
+    <test name="Nopackage" >
+        <classes>
+            <class name="com.freenow.test.EndtoEndTest" />
+            <class name="com.freenow.test.NegativeTest" />
+        </classes>
+    </test>
+</suite>
